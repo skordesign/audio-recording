@@ -1,0 +1,117 @@
+﻿<Page x:Class="audio_call_recording_uwp.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:audio_call_recording_uwp"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+
+    <Page.Resources>
+        <Storyboard x:Name="Storyboard">
+            <DoubleAnimationUsingKeyFrames AutoReverse="True"
+                                           RepeatBehavior="Forever"
+                                           Storyboard.TargetName="FontRect"
+                                           Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+                <LinearDoubleKeyFrame KeyTime="0:0:2" Value="40" />
+            </DoubleAnimationUsingKeyFrames>
+
+            <DoubleAnimationUsingKeyFrames AutoReverse="True"
+                                           RepeatBehavior="Forever"
+                                           Storyboard.TargetName="FontRect"
+                                           Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.LocalOffsetX)">
+                <LinearDoubleKeyFrame KeyTime="0:0:2" Value="-150" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+    <Grid>
+
+        <Grid.Background>Gray</Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Height="400">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <RelativePanel Grid.Row="1">
+                <Button x:Name="LeftNavigation"
+                        Content="&#xE016;"
+                        FontFamily="Segoe MDL2 Assets"
+                        RelativePanel.AlignVerticalCenterWith="FontRect" />
+                <Button x:Name="RightNavigation"
+                        HorizontalAlignment="Right"
+                        Content="&#xE017;"
+                        FontFamily="Segoe MDL2 Assets"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.AlignVerticalCenterWith="FontRect" />
+                <Rectangle x:Name="FontRect"
+                           Width="250"
+                           Height="300"
+                           Fill="Red"
+                           RelativePanel.AlignHorizontalCenterWithPanel="True"
+                           RelativePanel.AlignVerticalCenterWithPanel="True">
+                    <Rectangle.RenderTransform>
+                        <TranslateTransform x:Name="RecTranforms" />
+                    </Rectangle.RenderTransform>
+                    <Rectangle.Projection>
+                        <PlaneProjection />
+                    </Rectangle.Projection>
+                </Rectangle>
+                <Rectangle x:Name="LeftBR"
+                           Width="250"
+                           Height="300"
+                           Fill="Blue"
+                           RelativePanel.AlignVerticalCenterWith="FontRect"
+                           RelativePanel.LeftOf="FontRect">
+                    <Rectangle.RenderTransform>
+                        <CompositeTransform />
+                    </Rectangle.RenderTransform>
+                    <Rectangle.Projection>
+                        <PlaneProjection CenterOfRotationX="1" RotationY="60" />
+                    </Rectangle.Projection>
+                </Rectangle>
+                <Rectangle Width="250"
+                           Height="300"
+                           Fill="Aqua"
+                           RelativePanel.AlignVerticalCenterWith="FontRect"
+                           RelativePanel.RightOf="FontRect">
+                    <Rectangle.Projection>
+                        <PlaneProjection CenterOfRotationX="0" RotationY="-50" />
+                    </Rectangle.Projection>
+                </Rectangle>
+            </RelativePanel>
+        </Grid>
+        <MediaElement x:Name="mediaElement"
+                      Grid.Row="1"
+                      Width="500"
+                      Height="500"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      AreTransportControlsEnabled="True" />
+        <Ellipse Grid.Row="1"
+                 Width="100"
+                 Height="100"
+                 Stroke="White" />
+        <RelativePanel Grid.Row="1">
+            <Button x:Name="startBtn"
+                    Click="ButtonBase_OnClick"
+                    FontSize="40">
+                Start
+            </Button>
+            <Button x:Name="stopBtn"
+                    Click="StopBtn_OnClick"
+                    Content="Stop"
+                    FontSize="40"
+                    RelativePanel.Below="startBtn" />
+            <Button x:Name="playBtn"
+                    Click="PlayBtn_OnClick"
+                    Content="Play"
+                    FontSize="40"
+                    RelativePanel.Below="stopBtn" />
+        </RelativePanel>
+
+    </Grid>
+</Page>

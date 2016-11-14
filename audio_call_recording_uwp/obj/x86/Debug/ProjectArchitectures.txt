@@ -1,0 +1,1 @@
+C:\Users\Vu-Software-Develope\Documents\Visual Studio 2015\Projects\audio_call_recording_uwp\audio_call_recording_uwp\audio_call_recording_uwp.csproj;x86
