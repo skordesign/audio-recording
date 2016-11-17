@@ -27,7 +27,7 @@
         <Style x:Key="rdo" TargetType="RadioButton">
             <Setter Property="Width" Value="240" />
             <Setter Property="Height" Value="48" />
-            <Setter Property="Padding" Value="3" />
+            <Setter Property="Padding" Value="3"     />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="HorizontalAlignment" Value="Stretch" />
             <Setter Property="VerticalAlignment" Value="Center" />

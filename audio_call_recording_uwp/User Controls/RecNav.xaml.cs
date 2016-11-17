@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Store;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -22,90 +23,42 @@ namespace audio_call_recording_uwp.User_Controls
 {
     public sealed partial class RecNav : UserControl
     {
-        //ObservableCollection<IShow> _items = new ObservableCollection<IShow>();
 
-        //public ObservableCollection<IShow> Items
-        //{
-        //    get { return this._items; }
-        //}
-
-        //Random fRd, sRd, tRd, frRd = new Random();
-        ////Create collections
-        //public ObservableCollection<IShow> CreateCollection()
-        //{
-        //    var cll = new ObservableCollection<IShow>();
-        //    cll.Add(new IShow()
-        //    {
-        //        Ellipse = new SolidColorBrush(Color.FromArgb(Byte.Parse(fRd.Next(0, 255).ToString()),
-        //                                                     Byte.Parse(fRd.Next(0, 255).ToString()),
-        //                                                     Byte.Parse(fRd.Next(0, 255).ToString()),
-        //                                                     Byte.Parse(fRd.Next(0, 255).ToString())))
-        //        { },
-        //        Text = ""
-        //    });
-        //    cll.Add(new IShow()
-        //    {
-        //        Ellipse = new SolidColorBrush(Color.FromArgb(Byte.Parse(fRd.Next(0, 255).ToString()),
-        //                                                   Byte.Parse(fRd.Next(0, 255).ToString()),
-        //                                                   Byte.Parse(fRd.Next(0, 255).ToString()),
-        //                                                   Byte.Parse(fRd.Next(0, 255).ToString())))
-        //        { },
-        //        Text = ""
-        //    });
-        //    cll.Add(new IShow()
-        //    {
-        //        Ellipse = new SolidColorBrush(Color.FromArgb(Byte.Parse(fRd.Next(0, 255).ToString()),
-        //                                                   Byte.Parse(fRd.Next(0, 255).ToString()),
-        //                                                   Byte.Parse(fRd.Next(0, 255).ToString()),
-        //                                                   Byte.Parse(fRd.Next(0, 255).ToString())))
-        //        { },
-        //        Text = ""
-        //    });
-        //    return cll;
-        //}
-
-        public string YrContent
+        public string MonthTextblock
         {
-            get { return (string)GetValue(YrContentProperty); }
-            set { SetValue(YrContentProperty, value); }
+            get { return (string)GetValue(MonthTextblockProperty); }
+            set { SetValue(MonthTextblockProperty, value); }
         }
-        public static readonly DependencyProperty YrContentProperty = DependencyProperty.Register("YrContent", typeof(string), typeof(RecNav), null);
 
-        public string MtTb
-        {
-            get { return (string)GetValue(MtTbProperty); }
-            set { SetValue(MtTbProperty, value); }
-        }
-        public static readonly DependencyProperty MtTbProperty = DependencyProperty.Register("MtTb", typeof(string), typeof(RecNav), null);
+        // Using a DependencyProperty as the backing store for MonthTextblock.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MonthTextblockProperty =
+            DependencyProperty.Register("MonthTextblock", typeof(string), typeof(RecNav), null);
 
-        public string DyTb
-        {
-            get { return (string)GetValue(DTbProperty); }
-            set { SetValue(DTbProperty, value); }
-        }
-        public static readonly DependencyProperty DTbProperty = DependencyProperty.Register("DyTb", typeof(string), typeof(RecNav), null);
 
-        public string NotTb
+        public string DayTextblock
         {
-            get { return (string)GetValue(NotiTbProperty); }
-            set { SetValue(NotiTbProperty, value); }
+            get { return (string)GetValue(DayTectblockProperty); }
+            set { SetValue(DayTectblockProperty, value); }
         }
-        public static readonly DependencyProperty NotiTbProperty = DependencyProperty.Register("NotTb", typeof(string), typeof(RecNav), null);
 
-        public RecNav()
-        {
-            this.InitializeComponent();
-            YrBtn.Content = DateTime.Today.Year;
-        }
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
+        // Using a DependencyProperty as the backing store for DayTectblock.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty DayTectblockProperty =
+            DependencyProperty.Register("DayTectblock", typeof(string), typeof(RecNav), null);
 
+
+
+
+        public string Notification
+        {
+            get { return (string)GetValue(NotificationProperty); }
+            set { SetValue(NotificationProperty, value); }
         }
+
+        // Using a DependencyProperty as the backing store for Notification.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty NotificationProperty =
+            DependencyProperty.Register("Notification", typeof(string), typeof(RecNav), null);
+
+
+
     }
-        
-    //public class IShow
-    //{
-    //    public SolidColorBrush Ellipse { get; set; }
-    //    public string Text { get; set; }
-    //}
 }

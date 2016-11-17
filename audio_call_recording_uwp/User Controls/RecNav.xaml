@@ -10,34 +10,21 @@
 
     <Border>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Button x:Name="YrBtn"
-                    HorizontalAlignment="Center"
-                    Click="ButtonBase_OnClick"
-                    FontSize="30"
-                    Foreground="White" />
-            <Border Grid.Row="1"
-                    Width="250"
-                    Height="300">
+
+            <Border Width="250" Height="300">
                 <RelativePanel>
                     <TextBlock x:Name="MthTb"
                                Foreground="White"
-                               RelativePanel.AlignHorizontalCenterWithPanel="True"
-                               />
+                               RelativePanel.AlignHorizontalCenterWithPanel="True" />
                     <TextBlock x:Name="DTb"
                                FontSize="90"
                                Foreground="Aqua"
                                RelativePanel.AlignHorizontalCenterWithPanel="True"
-                               RelativePanel.Below="MthTb"
-                               />
+                               RelativePanel.Below="MthTb" />
                     <TextBlock x:Name="NotifTb"
                                Foreground="White"
                                RelativePanel.AlignHorizontalCenterWithPanel="True"
-                               RelativePanel.Below="DTb"
-                                />
+                               RelativePanel.Below="DTb" />
                     <ListView x:Name="MyListView"
                               Margin="10"
                               RelativePanel.Below="NotifTb">
